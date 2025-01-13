@@ -1,3 +1,4 @@
+
 max_t <- 365*8
 income_group <- "HIC"
 target_pop <- 1e5
@@ -57,6 +58,7 @@ vfr_drift_factor <- 2
 drift_start <- 365*4
 
 name <- "runbiannual"
+
 rt <- 4
 source("R/immunity_process_biannual.R")
 source("R/utils.R")
@@ -64,13 +66,15 @@ source("R/vaccine_function.R")
 source("R/vaccine_strategy.R")
 
 run_model_biannual()
-df <- readRDS("../covid_booster_strategies/raw_outputs/output_runbiannual/scenario_1.rds") %>%
+df <- readRDS("../covid_endemic_vaccine/raw_outputs/output_runbiannual/scenario_1.rds") %>%
   mutate(scenario = "runbiannual")
-
 
 ggplot(data = df, aes(x = timestep, y = incidence, col = scenario)) +
   geom_line() + 
-  labs(x = "timestep (days)", y = "incidence", color = "model") 
-  #scale_x_continuous(breaks = c(seq(0,365*5, by = 365)), limits = c(180, 1825)) +
+  labs(x = "timestep (days)", y = "incidence", color = "model")  +
+  scale_x_continuous(breaks = c(seq(0,365*8, by = 365)), limits = c(180, 1825)) +
   #scale_y_continuous(limits = c(0,1250)) +
   th
+
+# need to put in the reversal of the vfr in the infection vector
+# and reduced fold change?

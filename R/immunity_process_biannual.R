@@ -102,7 +102,7 @@ run_model_biannual <-
     
     vfr_final <- vfr_vector 
     
-    # include additional gradual antigenic drift in the form of small change in VFR every 4 months to represent immune escape
+    # include additional gradual antigenic drift in the form of small change in VFR every 12 months to represent immune escape
     x <- rep(vfr_drift_factor, 365)
     for (i in 1:20){
       x <- c(x, rep(tail(x,1)*vfr_drift_factor, 365))
@@ -171,7 +171,7 @@ run_model_biannual <-
     parameters <-
       make_immune_parameters(
         parameters = parameters,
-        vfr = vfr_vector,
+        vfr = vfr_final,
         mu_ab_infection = mu_ab_infection_vector_in,
         std10_infection = std10_infection
       )
