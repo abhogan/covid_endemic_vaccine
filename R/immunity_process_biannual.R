@@ -32,16 +32,6 @@ run_model_biannual <-
     # Poorer health outcomes for LMICs and LICs
     pnsdt = get_prob_non_severe_death_treatment(income_group, hs_constraints) 
     
-    # implement option for gradual variant replacement in form of small rt increase every 12 months
-
-    x <- rep(rt_drift_factor, 365)
-    for (i in 1:5){
-      x <- c(x, rep(tail(x,1)*rt_drift_factor, 365))
-    }
-    
-    rt_drift_multiplier <- c(rep(1, drift_start - 1), x)[1:time_period]
-    rt_out$Rt <- rt_out$Rt * rt_drift_multiplier
-    
     # base parameters
     parameters <- safir::get_parameters(
       population = pop$n,
@@ -111,6 +101,17 @@ run_model_biannual <-
                     rep(vfr2, time_period - vfr2_time2-1))
     
     vfr_final <- vfr_vector 
+    
+    # include additional gradual antigenic drift in the form of small change in VFR every 4 months to represent immune escape
+    x <- rep(vfr_drift_factor, 365)
+    for (i in 1:20){
+      x <- c(x, rep(tail(x,1)*vfr_drift_factor, 365))
+    }
+    
+    vfr_drift_multiplier <- c(rep(1, drift_start - 1),x)
+    vfr_drift_multiplier <- vfr_drift_multiplier[1:time_period]
+    
+    vfr_final <- vfr_vector * vfr_drift_multiplier
     
     # profiles
     vax_pars <- get_vaccine_pars(income_group = income_group,
@@ -383,8 +384,8 @@ run_model_biannual <-
     df <- left_join(df, df_hosp, by = c("timestep"))
     
     # Save output
-    output_path <- paste0("../covid_booster_strategies/raw_outputs/output_", name)
-    ifelse(!dir.exists(file.path("../covid_booster_strategies/raw_outputs", paste0("output_", name))), dir.create(file.path("../covid_booster_strategies/raw_outputs", paste0("output_", name))), NA)
+    output_path <- paste0("../covid_endemic_vaccine/raw_outputs/output_", name)
+    ifelse(!dir.exists(file.path("../covid_endemic_vaccine/raw_outputs", paste0("output_", name))), dir.create(file.path("../covid_endemic_vaccine/raw_outputs", paste0("output_", name))), NA)
     saveRDS(df, paste0(output_path, "/scenario_", scenario, ".rds"))
     
   }
