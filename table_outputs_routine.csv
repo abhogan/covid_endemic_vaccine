@@ -1,0 +1,109 @@
+vaccine_doses,mu_ab_d1,max_coverage,vacc_start_adjust_label,value,number_averted,prop_averted,value0
+65+ annual,0.217,0.2,"relative vaccination
+start 0 days",397,20,4.9,417
+65+ annual,0.217,0.2,"relative vaccination
+start 60 days",404,13,3,417
+65+ annual,0.217,0.2,"relative vaccination
+start 120 days",406,11,2.6,417
+65+ annual,0.217,0.4,"relative vaccination
+start 0 days",385,32,7.7,417
+65+ annual,0.217,0.4,"relative vaccination
+start 60 days",381,36,8.6,417
+65+ annual,0.217,0.4,"relative vaccination
+start 120 days",393,24,5.7,417
+65+ annual,0.217,0.6,"relative vaccination
+start 0 days",376,41,9.9,417
+65+ annual,0.217,0.6,"relative vaccination
+start 60 days",371,46,10.9,417
+65+ annual,0.217,0.6,"relative vaccination
+start 120 days",380,37,8.8,417
+65+ annual,0.326,0.2,"relative vaccination
+start 0 days",394,23,5.5,417
+65+ annual,0.326,0.2,"relative vaccination
+start 60 days",395,22,5.2,417
+65+ annual,0.326,0.2,"relative vaccination
+start 120 days",399,18,4.3,417
+65+ annual,0.326,0.4,"relative vaccination
+start 0 days",376,41,9.9,417
+65+ annual,0.326,0.4,"relative vaccination
+start 60 days",380,37,8.8,417
+65+ annual,0.326,0.4,"relative vaccination
+start 120 days",383,34,8.3,417
+65+ annual,0.326,0.6,"relative vaccination
+start 0 days",356,61,14.7,417
+65+ annual,0.326,0.6,"relative vaccination
+start 60 days",363,54,12.9,417
+65+ annual,0.326,0.6,"relative vaccination
+start 120 days",369,48,11.6,417
+65+ annual,0.435,0.2,"relative vaccination
+start 0 days",390,27,6.5,417
+65+ annual,0.435,0.2,"relative vaccination
+start 60 days",393,24,5.6,417
+65+ annual,0.435,0.2,"relative vaccination
+start 120 days",397,20,4.9,417
+65+ annual,0.435,0.4,"relative vaccination
+start 0 days",369,48,11.6,417
+65+ annual,0.435,0.4,"relative vaccination
+start 60 days",367,50,12,417
+65+ annual,0.435,0.4,"relative vaccination
+start 120 days",374,43,10.4,417
+65+ annual,0.435,0.6,"relative vaccination
+start 0 days",347,70,16.8,417
+65+ annual,0.435,0.6,"relative vaccination
+start 60 days",349,68,16.4,417
+65+ annual,0.435,0.6,"relative vaccination
+start 120 days",355,62,14.9,417
+"65+ annual, 75+ 6m",0.217,0.2,"relative vaccination
+start 0 days",398,19,4.6,417
+"65+ annual, 75+ 6m",0.217,0.2,"relative vaccination
+start 60 days",401,16,3.8,417
+"65+ annual, 75+ 6m",0.217,0.2,"relative vaccination
+start 120 days",404,13,3.1,417
+"65+ annual, 75+ 6m",0.217,0.4,"relative vaccination
+start 0 days",383,34,8,417
+"65+ annual, 75+ 6m",0.217,0.4,"relative vaccination
+start 60 days",386,31,7.4,417
+"65+ annual, 75+ 6m",0.217,0.4,"relative vaccination
+start 120 days",393,24,5.7,417
+"65+ annual, 75+ 6m",0.217,0.6,"relative vaccination
+start 0 days",365,52,12.4,417
+"65+ annual, 75+ 6m",0.217,0.6,"relative vaccination
+start 60 days",369,48,11.6,417
+"65+ annual, 75+ 6m",0.217,0.6,"relative vaccination
+start 120 days",373,44,10.6,417
+"65+ annual, 75+ 6m",0.326,0.2,"relative vaccination
+start 0 days",394,23,5.4,417
+"65+ annual, 75+ 6m",0.326,0.2,"relative vaccination
+start 60 days",389,28,6.7,417
+"65+ annual, 75+ 6m",0.326,0.2,"relative vaccination
+start 120 days",398,19,4.5,417
+"65+ annual, 75+ 6m",0.326,0.4,"relative vaccination
+start 0 days",365,52,12.4,417
+"65+ annual, 75+ 6m",0.326,0.4,"relative vaccination
+start 60 days",374,42,10.2,417
+"65+ annual, 75+ 6m",0.326,0.4,"relative vaccination
+start 120 days",381,36,8.7,417
+"65+ annual, 75+ 6m",0.326,0.6,"relative vaccination
+start 0 days",348,69,16.5,417
+"65+ annual, 75+ 6m",0.326,0.6,"relative vaccination
+start 60 days",351,66,15.7,417
+"65+ annual, 75+ 6m",0.326,0.6,"relative vaccination
+start 120 days",364,53,12.6,417
+"65+ annual, 75+ 6m",0.435,0.2,"relative vaccination
+start 0 days",381,36,8.6,417
+"65+ annual, 75+ 6m",0.435,0.2,"relative vaccination
+start 60 days",389,28,6.8,417
+"65+ annual, 75+ 6m",0.435,0.2,"relative vaccination
+start 120 days",400,17,4.2,417
+"65+ annual, 75+ 6m",0.435,0.4,"relative vaccination
+start 0 days",362,55,13.1,417
+"65+ annual, 75+ 6m",0.435,0.4,"relative vaccination
+start 60 days",365,52,12.5,417
+"65+ annual, 75+ 6m",0.435,0.4,"relative vaccination
+start 120 days",377,40,9.5,417
+"65+ annual, 75+ 6m",0.435,0.6,"relative vaccination
+start 0 days",335,82,19.7,417
+"65+ annual, 75+ 6m",0.435,0.6,"relative vaccination
+start 60 days",343,74,17.9,417
+"65+ annual, 75+ 6m",0.435,0.6,"relative vaccination
+start 120 days",361,56,13.3,417

@@ -1,6 +1,7 @@
 # main running function
 run_scenario_new <- 
   function(name = "scenario1",
+           index = index,
            scenario = 1,
            scenario_name = "scenario_name",
            target_pop = 1e6,
@@ -13,25 +14,26 @@ run_scenario_new <-
            seeding_cases = 10,
            max_coverage = 0.8,
            age_groups_covered = 14,
+           age_groups_covered_d2 = 14,
            age_groups_covered_d3 = 14,
            age_groups_covered_d4 = 14,
            age_groups_covered_d5 = 14,
            vacc_start = 121,
            vacc_period = 30,
-           vaccine_doses = 2,
-           vfr = 5.1,
+           vaccine_doses = 1,
+           vfr = 1,
            vfr2 = 1,
            vfr_time1 = 1,
            vfr_time2 = 2,
            vfr2_time1 = 90,
            vfr2_time2 = 120,
            vaccine = "vaccine",
-           mu_ab_d1 = 1.13,
-           mu_ab_d2 = 1.13,
-           k = 3.1,
-           ab_50 = 0.04,
-           ab_50_severe = 0.005,
-           mu_ab_infection = 1.13,
+           mu_ab_d1 = 0.3255,
+           mu_ab_d2 = 0.3255,
+           k = 2.5,
+           ab_50 = 0.09,
+           ab_50_severe = 0.021,
+           mu_ab_infection = 0.651,
            mu_ab_inf_scal_vfr = 1,
            hl_s = 35,
            hl_l = 1000,
@@ -51,11 +53,10 @@ run_scenario_new <-
            immune_escape = 0,
            matched_vacc = 1,
            matched_vacc_level = 1,
-           hosp_scal_vfr = 1,
-           ICU_scal_vfr = 1,
-           hosp_scal_vfr2 = 1,
-           ICU_scal_vfr2 = 1,
-           vacc_on = 1){
+           hosp_scal = 1,
+           ICU_scal = 1,
+           vacc_on = 1,
+           b1 = 0){
     
     # set up timing and transmission
     time_period <- max_t
@@ -64,8 +65,8 @@ run_scenario_new <-
     rt_out_sub <- rep(rt, time_period)
     
     # include seasonal forcing
-    rt_out <- rt_out_sub * (1 + 0.5 * cos(2 * pi * c(1:time_period) / 365))
-   # rt_out <- t(as.matrix(rt_out))
+    rt_out <- rt_out_sub * (1 + b1 * cos(2 * pi * c(1:time_period) / 365))
+    # rt_out <- t(as.matrix(rt_out))
     
     # set up daily per-capita prob of external infection with external pulse
     lambda_external <- rep(1e-6, time_period)
@@ -101,10 +102,7 @@ run_scenario_new <-
       ICU_bed_capacity = hc$ICU_beds,
       prob_non_severe_death_treatment = pnsdt,
       seeding_cases = seeding_cases,
-      lambda_external = lambda_external[1:time_period],
-      dur_IMild = 7,
-      dur_ICase = 7,
-      dur_IAsymp = 7
+      lambda_external = lambda_external[1:time_period]
     )
     
     # --------------------------------------------------------------------------------
@@ -125,13 +123,13 @@ run_scenario_new <-
         time_period = time_period,
         max_coverage = max_coverage,
         age_groups_covered = age_groups_covered,
+        age_groups_covered_d2 = age_groups_covered_d2,
         age_groups_covered_d3 = age_groups_covered_d3,
         age_groups_covered_d4 = age_groups_covered_d4,
         age_groups_covered_d5 = age_groups_covered_d5,
         vaccine_doses = vaccine_doses,
         pop = pop
       )
-    
     
     vaccine_set <- vaccine_out$vaccine_set
     vaccine_coverage_strategy <- vaccine_out$vaccine_coverage_strategy
@@ -144,10 +142,10 @@ run_scenario_new <-
     
     # dosing
     if (vaccine_doses == 1) {dose_period <- c(1)}
-    if (vaccine_doses == 2) {dose_period <- c(NaN, 28)}
-    if (vaccine_doses == 3) {dose_period <- c(NaN, 28, t_d3)}
-    if (vaccine_doses == 4) {dose_period <- c(NaN, 28, t_d3, t_d4)}
-    if (vaccine_doses == 5) {dose_period <- c(NaN, 28, t_d3, t_d4, t_d5)}
+    if (vaccine_doses == 2) {dose_period <- c(NaN, t_d2)}
+    if (vaccine_doses == 3) {dose_period <- c(NaN, t_d2, t_d3)}
+    if (vaccine_doses == 4) {dose_period <- c(NaN, t_d2, t_d3, t_d4)}
+    if (vaccine_doses == 5) {dose_period <- c(NaN, t_d2, t_d3, t_d4, t_d5)}
     
     # make VFR reduction vector and attach
     vfr_vector <- c(rep(1, (vfr_time1 - 1)),
@@ -203,13 +201,11 @@ run_scenario_new <-
                                 rep(mu_ab_infection*vfr2, time_period - vfr2_time2-1))
     
     # apply the potential reduction in protection against reinfection again each time a new variant emerges
-    
     mu_ab_inf_scal_vfr_vector <- c(rep(1, (vfr_time1 - 1)),
                                    seq(1, mu_ab_inf_scal_vfr, length = vfr_time2 - vfr_time1 + 1),
                                    rep(mu_ab_inf_scal_vfr, time_period - vfr_time2 ))
     
     mu_ab_infection_vector_in <- t(as.matrix(mu_ab_infection_vector * mu_ab_inf_scal_vfr_vector))
-    
     
     parameters <-
       make_immune_parameters(
@@ -220,41 +216,11 @@ run_scenario_new <-
       )
     
     # apply modification to rate of hospitalisation and ICU
-    
     v <- parameters$prob_hosp
-    parameters$prob_hosp <-
-      matrix(v,
-             nrow = time_period,
-             ncol = length(v),
-             byrow = TRUE)
-    mult <-
-      c(
-        rep(1, vfr_time1 - 1),
-        seq(1, hosp_scal_vfr, length.out = vfr_time2 - vfr_time1 + 1),
-        rep(hosp_scal_vfr, (vfr2_time1 - vfr_time2)),
-        seq(hosp_scal_vfr, hosp_scal_vfr2, length = vfr2_time2 - vfr2_time1 + 1),
-        rep(hosp_scal_vfr2, time_period - vfr2_time2-1)
-      )
-    new <- parameters$prob_hosp * mult
-    parameters$prob_hosp <- t(new)
+    parameters$prob_hosp <- v*hosp_scal
     
     v <- parameters$prob_severe
-    parameters$prob_severe <-
-      matrix(v,
-             nrow = time_period,
-             ncol = length(v),
-             byrow = TRUE)
-    mult <-
-      c(
-        rep(1, vfr_time1 - 1),
-        seq(1, ICU_scal_vfr, length.out = vfr_time2 - vfr_time1 + 1),
-        rep(ICU_scal_vfr, (vfr2_time1 - vfr_time2)),
-        seq(ICU_scal_vfr, ICU_scal_vfr2, length = vfr2_time2 - vfr2_time1 + 1),
-        rep(ICU_scal_vfr2, time_period - vfr2_time2-1)
-      )
-    new <- parameters$prob_severe * mult
-    parameters$prob_severe <- t(new)
-    
+    parameters$prob_severe <- v*ICU_scal
     
     # decay rate vector: biphasic implementation rather than switching point
     dr_s <- -log(2)/hl_s
@@ -268,16 +234,6 @@ run_scenario_new <-
     
     # assume that the decay rate for natural infection is the same as for the vaccine
     dr_vec_inf <- dr_vec
-    
-    # 
-    # # # read in decay rate vector
-    # dr_vec2 <- readRDS("data/dr_vec.rds")
-    # dr_vec_vaccine2 <- dr_vec2 %>%
-    #   select(-t,-N)
-
-    # # assume that the decay rate for natural infection is the same as for the vaccine
-    # dr_vec_inf <- dr_vec %>%
-    #   select(N)
     
     dr_vec_doses_m <- data.matrix(dr_vec_vaccine)
     dr_vec_inf_m <- data.matrix(dr_vec_inf)
@@ -429,6 +385,6 @@ run_scenario_new <-
     # Save output
     output_path <- paste0("raw_outputs/output_", name)
     ifelse(!dir.exists(file.path("raw_outputs", paste0("output_", name))), dir.create(file.path("raw_outputs", paste0("output_", name))), NA)
-    saveRDS(df, paste0(output_path, "/scenario_", scenario, ".rds"))
+    saveRDS(df, paste0(output_path, "/scenario_", name,"_",index, ".rds"))
 
   }

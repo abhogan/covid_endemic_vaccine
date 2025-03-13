@@ -47,3 +47,9 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# other folders
+old/
+pbs_files/
+raw_outputs/
+

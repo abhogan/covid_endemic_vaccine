@@ -1,0 +1,16 @@
+vaccine_doses,vfr2_time1_name,scenario_name,value0,value,averted,percent_averted
+65+ annual,2 months,unmatched,702,627,75,10.7
+65+ annual,2 months,partially-matched,702,580,122,17.4
+"65+ annual, 75+ 6m",2 months,unmatched,702,603,98,14.1
+"65+ annual, 75+ 6m",2 months,partially-matched,702,556,146,20.8
+"65+ annual, 75+ 6m",2 months,"partially-matched d1, well-matched d2",702,536,166,23.6
+65+ annual,4 months,unmatched,707,636,72,10
+65+ annual,4 months,partially-matched,707,600,107,15.1
+"65+ annual, 75+ 6m",4 months,unmatched,707,609,98,13.9
+"65+ annual, 75+ 6m",4 months,partially-matched,707,583,124,17.5
+"65+ annual, 75+ 6m",4 months,"partially-matched d1, well-matched d2",707,542,165,23.3
+65+ annual,6 months,unmatched,732,682,50,6.8
+65+ annual,6 months,partially-matched,732,630,102,13.9
+"65+ annual, 75+ 6m",6 months,unmatched,732,631,100,13.8
+"65+ annual, 75+ 6m",6 months,partially-matched,732,608,124,16.9
+"65+ annual, 75+ 6m",6 months,"partially-matched d1, well-matched d2",732,580,152,20.8

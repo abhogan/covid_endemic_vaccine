@@ -80,12 +80,12 @@ get_vaccine_pars <- function(
   matched_vacc = 0,
   matched_vacc_level = 0
 ){
-  # if implementing bivalent vaccine, start from 4th dose by reversing out impact of vfr (but retaining higher immunogenicity of 4th dose)
+  # if implementing matched vaccine, start from 4th dose by reversing out impact of vfr (but retaining higher immunogenicity of 4th dose)
   
   if (immune_escape == 1){
     if (matched_vacc == 1){
-      mu_ab_d1 <- mu_ab_d1 * matched_vacc_level * vfr2
-      mu_ab_d2 <- mu_ab_d2 * matched_vacc_level * vfr2
+      mu_ab_d1 <- mu_ab_d1 * vfr2
+      mu_ab_d2 <- mu_ab_d2 * vfr2
     } 
   }
    

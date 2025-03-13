@@ -1,0 +1,37 @@
+run,vaccine_doses,vfr2,vacc_start,vfr2_time1,vacc_on,mu_ab_d1,mu_ab_d2,matched_vacc_level,scenario_name
+1,1,1.5,3830,3890,1,0.435,0.435,0.5,unmatched
+2,1,1.5,3830,3950,1,0.435,0.435,0.5,unmatched
+3,1,1.5,3830,4010,1,0.435,0.435,0.5,unmatched
+4,1,1.5,3830,3890,1,0.435,0.435,1,partially-matched
+5,1,1.5,3830,3950,1,0.435,0.435,1,partially-matched
+6,1,1.5,3830,4010,1,0.435,0.435,1,partially-matched
+7,2,1.5,3830,3890,1,0.435,0.435,0.5,unmatched
+8,2,1.5,3830,3950,1,0.435,0.435,0.5,unmatched
+9,2,1.5,3830,4010,1,0.435,0.435,0.5,unmatched
+10,2,1.5,3830,3890,1,0.435,0.435,1,partially-matched
+11,2,1.5,3830,3950,1,0.435,0.435,1,partially-matched
+12,2,1.5,3830,4010,1,0.435,0.435,1,partially-matched
+13,2,1.5,3830,3890,1,0.435,0.652,1,"partially-matched d1, well-matched d2"
+14,2,1.5,3830,3950,1,0.435,0.652,1,"partially-matched d1, well-matched d2"
+15,2,1.5,3830,4010,1,0.435,0.652,1,"partially-matched d1, well-matched d2"
+16,1,2,3830,3890,1,0.435,0.435,0.5,unmatched
+17,1,2,3830,3950,1,0.435,0.435,0.5,unmatched
+18,1,2,3830,4010,1,0.435,0.435,0.5,unmatched
+19,1,2,3830,3890,1,0.435,0.435,1,partially-matched
+20,1,2,3830,3950,1,0.435,0.435,1,partially-matched
+21,1,2,3830,4010,1,0.435,0.435,1,partially-matched
+22,2,2,3830,3890,1,0.435,0.435,0.5,unmatched
+23,2,2,3830,3950,1,0.435,0.435,0.5,unmatched
+24,2,2,3830,4010,1,0.435,0.435,0.5,unmatched
+25,2,2,3830,3890,1,0.435,0.435,1,partially-matched
+26,2,2,3830,3950,1,0.435,0.435,1,partially-matched
+27,2,2,3830,4010,1,0.435,0.435,1,partially-matched
+28,2,2,3830,3890,1,0.435,0.652,1,"partially-matched d1, well-matched d2"
+29,2,2,3830,3950,1,0.435,0.652,1,"partially-matched d1, well-matched d2"
+30,2,2,3830,4010,1,0.435,0.652,1,"partially-matched d1, well-matched d2"
+31,1,1.5,5475,3890,0,0.435,0.435,1,no vaccine
+32,1,1.5,5475,3950,0,0.435,0.435,1,no vaccine
+33,1,1.5,5475,4010,0,0.435,0.435,1,no vaccine
+34,1,2,5475,3890,0,0.435,0.435,1,no vaccine
+35,1,2,5475,3950,0,0.435,0.435,1,no vaccine
+36,1,2,5475,4010,0,0.435,0.435,1,no vaccine
