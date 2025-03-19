@@ -156,6 +156,20 @@ run_scenario_age <-
     
     vfr_final <- vfr_vector 
     
+<<<<<<< HEAD:R/run_function_immunity_age.R
+=======
+    # include additional gradual antigenic drift in the form of small change in VFR every 12 months to represent immune escape
+    x <- rep(vfr_drift_factor, 365)
+    for (i in 1:20){
+      x <- c(x, rep(tail(x,1)*vfr_drift_factor, 365))
+    }
+    
+    vfr_drift_multiplier <- c(rep(1, drift_start - 1),x)
+    vfr_drift_multiplier <- vfr_drift_multiplier[1:time_period]
+    
+    vfr_final <- vfr_vector * vfr_drift_multiplier
+    
+>>>>>>> 7ad761ed429112077d4f9fe940362238aa6381e4:R/immunity_process_biannual.R
     # profiles
     vax_pars <- get_vaccine_pars(income_group = income_group,
                                  mu_ab_d1 = mu_ab_d1,
@@ -212,7 +226,7 @@ run_scenario_age <-
     parameters <-
       make_immune_parameters(
         parameters = parameters,
-        vfr = vfr_vector,
+        vfr = vfr_final,
         mu_ab_infection = mu_ab_infection_vector_in,
         std10_infection = std10_infection
       )
