@@ -10,7 +10,7 @@ boost <- log10(1.13/5.1*2) # moderna booster (previously called d3)
 ab_50       <- log10(0.091)
 ab_50_severe <-  log10(0.021)
 ab_50_death  <- log10(0.021)
-k           <- 2.5
+k           <- 2.5 #3.1
 hl_s        <- 35
 hl_l        <- 1000 #581
 period_s    <- 75
@@ -57,14 +57,15 @@ scenarios <-
 
 system.time({out <- future_pmap(scenarios, vaccine_profile, .progress = TRUE)})
 
-d1 <- bind_rows(out)%>%
+d1 <- bind_rows(out)
+
+plot(d1$ef_infection) %>%
   select(t, name, immune_level) 
 plot(d1$immune_level)
 
 # infection
 boost <- log10(1.13/5.1*3) # moderna booster (previously called d3)
 t_boost <- 400
-
 
 scenarios <-
   expand_grid(

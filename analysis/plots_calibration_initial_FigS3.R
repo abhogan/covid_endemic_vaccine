@@ -20,7 +20,11 @@ df <- readRDS("../covid_endemic_vaccine/processed_outputs/df_summarise_runs_cali
   dplyr::group_by(vacc_on, scenario_1, mu_ab_d1, b1, rt, mu_ab_infection) %>%
   mutate(prevmean = rollmean(prev, 7, na.pad = TRUE),
          incmean = rollmean(inc_t, 7, na.pad = TRUE),
-         hospmean = rollmean(hosp_t, 7, na.pad = TRUE)) %>%
+         hospmean = rollmean(hosp_t, 7, na.pad = TRUE),
+         incmean_upper = rollmean(inc_tmax, 7, na.pad = TRUE),
+         incmean_lower = rollmean(inc_tmin, 7, na.pad = TRUE),
+         hospmean_upper = rollmean(hosp_tmax, 7, na.pad = TRUE),
+         hospmean_lower = rollmean(hosp_tmin, 7, na.pad = TRUE)) %>%
   filter(vacc_on == 0) %>%
   filter(timestep > 365*7+180,
          timestep<=365*9+180) %>%
@@ -87,6 +91,7 @@ av_infections <- av_infections %>%
 # include attack rate on hosp plot
 ggplot(data = filter(df2, b1 == 0.04), aes(x = timestep, y = hospmean)) +
   geom_line() +
+  geom_ribbon(aes(ymin = hospmean_lower, ymax = hospmean_upper), alpha = 0.2, col = NA) +
   facet_grid(rt_labels~mu_ab_labels, labeller = label_parsed)+
   scale_x_continuous(breaks = seq(0,365*10,by=365), limits = c(0,365*2)) +
   labs(x = "time (days)", y = "hospitalisations per million\n(rolling 7-day mean)") +

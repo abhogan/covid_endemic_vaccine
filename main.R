@@ -1,5 +1,5 @@
 # Author: A Hogan
-# Updated 12 March 2025
+# Updated 18 November 2025
 
 # load packages
 library(tidyverse)
@@ -16,6 +16,7 @@ library(countrycode)
 library(safirimmunity)
 library(ggpubr)
 library(scales)
+library(zoo)
 
 # functions
 source("../covid_endemic_vaccine/R/vaccine_function.R")
@@ -54,8 +55,8 @@ c8 <- "#F0941F"
 
 # plots_calibration_initial_FigS3 File: calibrationrtb1mu
 # plots_calibration_mud1_Fig2.R produces Fig 2, FigS2. File: calibrationmud1
-# plots_routine_Fig3. Produces Fig 3, Fig S5. File: routinemud1
-# plots_routineescape_fig4. Produces Fig 4, Fig S7, Fig S8. File: routineescapemud1
+# plots_routine_Fig3. Produces Fig 3, Fig S5. File: routinemud1_new
+# plots_routineescape_fig4. Produces Fig 4, Fig S7, Fig S8. File: routineescapemud1new
 
 # File to test out model calibration: calibrationagertb1
 
