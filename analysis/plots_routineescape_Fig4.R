@@ -50,7 +50,7 @@ ggplot(data = filter(df, vaccine_doses == "65+ annual", scenario_name == "no vac
   scale_color_viridis_d(option="C", begin = 0.2, end = 0.8, direction =1)+
   scale_fill_viridis_d(option="C", begin = 0.2, end = 0.8, direction =1)
 
-ggsave("../covid_endemic_vaccine/figures/routineescape_incidence_FigS7.png", height = 8, width = 8)
+ggsave("../covid_endemic_vaccine/figures/routineescape_incidence_FigS9.png", height = 8, width = 8)
 
 # hosps over time
 rectdata <- df %>%
@@ -98,7 +98,7 @@ p4 <- ggplot(data = df_1y_hosp1, aes(fill = scenario_name, y = vfr2_time1_name, 
   th
 p4
 
-ggsave("../covid_endemic_vaccine/figures/routineescape_totals_FigS8.png", height = 4, width = 10)
+ggsave("../covid_endemic_vaccine/figures/routineescape_totals_FigS10.png", height = 4, width = 10)
 
 #########################################################
 # present as # hospitalisations averted per 100,000

@@ -1,16 +1,16 @@
-vaccine_doses,vfr2_time1_name,scenario_name,value0,value,averted,percent_averted
-65+ annual,2 months,unmatched,702,627,75,10.7
-65+ annual,2 months,partially-matched,702,580,122,17.4
-"65+ annual, 75+ 6m",2 months,unmatched,702,603,98,14.1
-"65+ annual, 75+ 6m",2 months,partially-matched,702,556,146,20.8
-"65+ annual, 75+ 6m",2 months,"partially-matched d1, well-matched d2",702,536,166,23.6
-65+ annual,4 months,unmatched,707,636,72,10
-65+ annual,4 months,partially-matched,707,600,107,15.1
-"65+ annual, 75+ 6m",4 months,unmatched,707,609,98,13.9
-"65+ annual, 75+ 6m",4 months,partially-matched,707,583,124,17.5
-"65+ annual, 75+ 6m",4 months,"partially-matched d1, well-matched d2",707,542,165,23.3
-65+ annual,6 months,unmatched,732,682,50,6.8
-65+ annual,6 months,partially-matched,732,630,102,13.9
-"65+ annual, 75+ 6m",6 months,unmatched,732,631,100,13.8
-"65+ annual, 75+ 6m",6 months,partially-matched,732,608,124,16.9
-"65+ annual, 75+ 6m",6 months,"partially-matched d1, well-matched d2",732,580,152,20.8
+vaccine_doses,vfr2_time1_name,scenario_name,hosp_out,avert_out,prop_out
+65+ annual,2 months,unmatched,"628 (613, 643)","71 (50, 90)","10.3 (7.3, 12.7)"
+65+ annual,2 months,partially-matched,"577 (564, 592)","122 (95, 142)","17.5 (13.9, 20.1)"
+"65+ annual, 75+ 6m",2 months,unmatched,"604 (592, 618)","93 (80, 111)","13.3 (11.6, 15.6)"
+"65+ annual, 75+ 6m",2 months,partially-matched,"570 (547, 579)","130 (117, 156)","18.7 (16.8, 22.2)"
+"65+ annual, 75+ 6m",2 months,"partially-matched d1, well-matched d2","536 (522, 549)","160 (148, 179)","23.1 (21.3, 25.4)"
+65+ annual,4 months,unmatched,"648 (628, 658)","69 (41, 95)","9.6 (5.9, 13.1)"
+65+ annual,4 months,partially-matched,"600 (589, 618)","110 (87, 137)","15.5 (12.5, 18.6)"
+"65+ annual, 75+ 6m",4 months,unmatched,"609 (589, 623)","102 (83, 127)","14.5 (12, 17.7)"
+"65+ annual, 75+ 6m",4 months,partially-matched,"576 (562, 591)","134 (109, 167)","18.8 (15.7, 22.7)"
+"65+ annual, 75+ 6m",4 months,"partially-matched d1, well-matched d2","543 (533, 560)","165 (150, 185)","23.2 (21.4, 25.6)"
+65+ annual,6 months,unmatched,"682 (667, 702)","44 (25, 78)","6 (3.4, 10.5)"
+65+ annual,6 months,partially-matched,"637 (624, 646)","92 (72, 116)","12.5 (10.1, 15.4)"
+"65+ annual, 75+ 6m",6 months,unmatched,"630 (616, 647)","99 (70, 122)","13.7 (9.8, 16.3)"
+"65+ annual, 75+ 6m",6 months,partially-matched,"608 (593, 622)","120 (99, 146)","16.5 (13.7, 19.4)"
+"65+ annual, 75+ 6m",6 months,"partially-matched d1, well-matched d2","579 (564, 599)","151 (119, 174)","20.8 (16.7, 23.4)"

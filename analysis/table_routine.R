@@ -26,8 +26,8 @@ df_1y2 <- df_1y %>%
                                                                               "relative vaccination\nstart 120 days")))
 df_out <- df_1y2 %>%
   filter(vacc_on != "baseline") %>%
-  arrange(vaccine_doses, mu_ab_d1, max_coverage, vacc_start_adjust_label) %>%
-  select(vaccine_doses, mu_ab_d1, max_coverage, vacc_start_adjust_label, hosp_med, hosp_lower, hosp_upper, cum_hosp_averted_med, cum_hosp_averted_lower, cum_hosp_averted_upper, prop_hosp_averted_med, prop_hosp_averted_lower, prop_hosp_averted_upper) %>%
+  arrange(vaccine_doses, mu_ab_d1, max_coverage, vacc_start_adjust) %>%
+  select(vaccine_doses, mu_ab_d1, max_coverage, vacc_start_adjust, hosp_med, hosp_lower, hosp_upper, cum_hosp_averted_med, cum_hosp_averted_lower, cum_hosp_averted_upper, prop_hosp_averted_med, prop_hosp_averted_lower, prop_hosp_averted_upper) %>%
   pivot_longer(cols = c(hosp_med, hosp_lower, hosp_upper, cum_hosp_averted_med, cum_hosp_averted_lower, cum_hosp_averted_upper)) %>%
   mutate(value = round(value/10)) %>%
     pivot_wider(names_from = name, values_from = value) %>%
@@ -37,10 +37,11 @@ df_out <- df_1y2 %>%
   mutate(hosp_out = paste0(hosp_med, " (", hosp_lower, ", ", hosp_upper, ")")) %>%
   mutate(avert_out = paste0(cum_hosp_averted_med, " (", cum_hosp_averted_lower, ", ", cum_hosp_averted_upper, ")")) %>%
   mutate(prop_out = paste0(prop_hosp_averted_med, " (", prop_hosp_averted_lower, ", ", prop_hosp_averted_upper, ")")) %>%
-  select(vaccine_doses, mu_ab_d1, max_coverage, vacc_start_adjust_label, hosp_out, avert_out, prop_out)
-df_out
+  select(vaccine_doses, mu_ab_d1, max_coverage, vacc_start_adjust, hosp_out, avert_out, prop_out)
+  df_out
 
 write_csv(df_out, "../covid_endemic_vaccine/table_outputs_routine.csv")
 
 df_1y %>%
   filter(vacc_on == "baseline")
+

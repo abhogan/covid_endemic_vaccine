@@ -55,8 +55,8 @@ c8 <- "#F0941F"
 
 # plots_calibration_initial_FigS3 File: calibrationrtb1mu
 # plots_calibration_mud1_Fig2.R produces Fig 2, FigS2. File: calibrationmud1
-# plots_routine_Fig3. Produces Fig 3, Fig S5. File: routinemud1_new
-# plots_routineescape_fig4. Produces Fig 4, Fig S7, Fig S8. File: routineescapemud1new
+# plots_routine_Fig3. Produces Fig 3, Fig S7. File: routinemud1_new
+# plots_routineescape_fig4. Produces Fig 4, Fig S9, Fig S10. File: routineescapemud1new
 
 # File to test out model calibration: calibrationagertb1
 

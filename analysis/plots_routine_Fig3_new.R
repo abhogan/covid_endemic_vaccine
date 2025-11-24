@@ -1,3 +1,4 @@
+library(zoo)
 
 # some plotting things
 theme_set(theme_bw(base_size = 14))
@@ -106,7 +107,6 @@ p1_sub <- ggplot(data = filter(df2,
   scale_x_continuous(breaks = seq(0,365*4, by = 365)) +
   theme(legend.position = "top")
 
-
 p1_sub
 
 ggsave("../covid_endemic_vaccine/figures/routine2_Fig3A.png", height = 3, width = 10)
@@ -171,16 +171,6 @@ p4 <- ggplot(data = df_1y_prophosp3, aes(x = mu_ab_d1, y = prop_hosp_averted_med
 p4
 
 library(ggpubr)
-figure <- ggarrange(
-  ggarrange(p1_sub,p4,nrow = 1, labels = c("A","B"), widths = c(1.3,1)),
-  p2, nrow = 2, labels = c("", "C"), heights = c(1,1.3), widths = c(1,0.5))
-figure
-ggsave("../covid_endemic_vaccine/figures/combined_figure_3.png", height = 10, width = 13)
-
-figure <- ggarrange(p1_sub,p4,p2,nrow = 2, ncol = 2,labels = c("A","B","C"), widths = c(1.3,1),
-  heights = c(1,1.5))
-figure
-ggsave("../covid_endemic_vaccine/figures/combined_figure_3_v2.png", height = 10, width = 12)
 
 p2  <- p2 +
   theme(legend.position = "right")
